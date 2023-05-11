@@ -17,7 +17,7 @@ import { errorHandler } from './middlewares/errorHandler.js'
 const app=express();
 const appServer=http.createServer(app);
 
-const io = new Server(appServer,{cors: {origin: "https://coderhub-client.vercel.app/"}}) 
+const io = new Server(appServer,{cors: {origin: ["https://coderhub.cloud","https://www.coderhub.cloud","https://coderhub-client.vercel.app/"]}}) 
 
 
  
@@ -130,5 +130,6 @@ io.on("connection",(socket)=>{
 
  
 dbConnection().then(()=>{
+
     appServer.listen(process.env.PORT,()=>console.log(`SERVER STARTED AT PORT:${process.env.PORT}`))
-})       
+})        
