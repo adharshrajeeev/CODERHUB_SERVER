@@ -23,7 +23,7 @@ const io = new Server(appServer,{cors: {origin: "*"}})
  
 dotenv.config();
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://coderhub-client.vercel.app/',
     optionsSuccessStatus: 200
 }));
 
