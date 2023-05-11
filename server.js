@@ -17,13 +17,13 @@ import { errorHandler } from './middlewares/errorHandler.js'
 const app=express();
 const appServer=http.createServer(app);
 
-const io = new Server(appServer,{cors: {origin: "*"}}) 
+const io = new Server(appServer,{cors: {origin: "https://coderhub-client.vercel.app/"}}) 
 
 
  
 dotenv.config();
 app.use(cors({
-    origin: 'https://coderhub-client.vercel.app/',
+    origin: '*',
     optionsSuccessStatus: 200
 }));
 
