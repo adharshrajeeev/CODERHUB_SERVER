@@ -80,7 +80,7 @@ export const verificationAndSignup= async(req,res)=>{
 
       let message={ 
          from:'adharshrajeeev2000@gmail.com',
-         to:"adharshrajeeev2000@gmail.com",
+         to:email,
          subject:"Email Verification",
          html:mail
       }
@@ -558,7 +558,7 @@ export const sendOtpToMail = async (req,res)=>{
 
       let message={ 
          from:'adharshrajeeev2000@gmail.com',
-         to:"adharshrajeeev2000@gmail.com",
+         to:email,
          subject:"Reset Password",
          html:mail
       }
