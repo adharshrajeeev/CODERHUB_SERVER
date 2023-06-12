@@ -149,7 +149,7 @@ export const userLogin = async(req,res)=>{
          res.status(400).json({success:false,message:error.details[0].message})
       }else{
          const {email,password}=req.body;
-         const userdetails=await User.findOne({email});
+         let userdetails=await User.findOne({email});
          if(userdetails){
             if(userdetails.isBlocked) return res.status(403).json({message:" Sorry, your account has been blocked."})
             const passMatch=await bcrypt.compare(password,userdetails.password);
