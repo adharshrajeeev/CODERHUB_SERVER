@@ -20,7 +20,7 @@ export const registerUser = async (req,res)=>{
       }else{
          
          const {email,password,userName,phoneNumber,dateOfBirth,gender}=req.body
-         const userdetails=await User.findOne({ email});
+         const userdetails=await User.findOne({ email}).select('-password');
          if(userdetails){
             res.status(200).json({success:false,message:"User already Registered"})
          }else{
@@ -156,6 +156,7 @@ export const userLogin = async(req,res)=>{
             if(!passMatch) return res.status(400).json({success:false,message:"User Password is Invalid"})
             
             const token=jwt.sign({id:userdetails._id},process.env.JWT_SECETKEY);
+             userdetails=await User.findOne({email}).select('-password');
             res.status(200).json({success:true,message:"Login success",token,userdetails})
          }else{
             res.status(400).json({success:false,message:"User not found"})
